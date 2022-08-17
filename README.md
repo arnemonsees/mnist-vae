@@ -9,4 +9,5 @@ Simple variational autoencoder for MNIST
 
 ## Results
 Smooth number interpolation
+
 ![alt text](https://github.com/arnemonsees/mnist-vae/blob/main/sample.png)
