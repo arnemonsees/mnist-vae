@@ -1,5 +1,5 @@
 # mnist-vae
-Simple variational autoencoder for MNIST
+Implementation of a variational autoencoder for MNIST
 
 ## Instructions
 1. Open Google Colab: https://research.google.com/colaboratory/
@@ -8,6 +8,6 @@ Simple variational autoencoder for MNIST
 4. Run colab.ipynb cell by cell
 
 ## Results
-Smooth number interpolation
+The trained VAE can, for instance, be used to generate smooth interpolations between different numbers. This is achieved by moving along a trajectory in latent space, which connects the respective numbers. 
 
 ![alt text](https://github.com/arnemonsees/mnist-vae/blob/main/sample.png)
