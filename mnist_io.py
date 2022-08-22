@@ -12,7 +12,7 @@ path_data = 'data/mnist'
 file_imgs_train = path_data + '/train-images-idx3-ubyte.gz'
 file_labels_train = path_data + '/train-labels-idx1-ubyte.gz'
 file_imgs_test = path_data + '/t10k-images-idx3-ubyte.gz'
-file_labels_test = path_data + '/t10k-labels-idx3-ubyte.gz'
+file_labels_test = path_data + '/t10k-labels-idx1-ubyte.gz'
 
 def load_images(imgs_file, nImgs):
     '''
