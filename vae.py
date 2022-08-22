@@ -86,9 +86,9 @@ def plot_imgs(x_plot, y_plot):
     fig1.clear()
     ax = list()
     for i in range(2*nImgs):
-    ax.append(fig1.add_subplot(2,nImgs,i+1))
-    ax[-1].clear()
-    ax[-1].axis('off')
+        ax.append(fig1.add_subplot(2,nImgs,i+1))
+        ax[-1].clear()
+        ax[-1].axis('off')
     for i in range(nImgs):
       h_in = ax[i].imshow(x_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
       h_out = ax[i+nImgs].imshow(y_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
