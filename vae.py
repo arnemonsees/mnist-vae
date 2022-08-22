@@ -90,8 +90,8 @@ def plot_imgs(x_plot, y_plot):
         ax[-1].clear()
         ax[-1].axis('off')
     for i in range(nImgs):
-      h_in = ax[i].imshow(x_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
-      h_out = ax[i+nImgs].imshow(y_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
+        h_in = ax[i].imshow(x_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
+        h_out = ax[i+nImgs].imshow(y_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
     fig1.canvas.draw()
     plt.show(block=False)
     #plt.pause(0.1)
