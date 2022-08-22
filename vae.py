@@ -12,9 +12,9 @@ from sklearn.decomposition import PCA
 import mnist_io
 
 if torch.cuda.is_available():  
-  dev = 'cuda:0'
+    dev = 'cuda:0'
 else:  
-  dev = 'cpu'
+    dev = 'cpu'
 
 # based on 2014__Kingma__Auto-Encoding_Variational_Bayes
 class Encoder(nn.Module): # Gaussian output
@@ -51,12 +51,12 @@ class VAE(nn.Module):
         self.samples = torch.zeros(dim_z, device=dev)
     
     def encode(self, img):
-      mu, sigma = self.encoder(img)
-      return mu, sigma
+        mu, sigma = self.encoder(img)
+        return mu, sigma
 
     def decode(self, z):
-      y = self.decoder(z)
-      return y
+        y = self.decoder(z)
+        return y
 
     def forward(self, img):
         # encode
