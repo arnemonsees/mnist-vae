@@ -237,8 +237,8 @@ if __name__ == '__main__':
         pca_mu.explained_variance_ratio_[0],
         pca_mu.explained_variance_ratio_[1]))
     print('\tsigma:\tPC1={:0.2f}, PC2={:0.2f}'.format(
-          pca_sigma.explained_variance_ratio_[0],
-          pca_sigma.explained_variance_ratio_[1]))
+        pca_sigma.explained_variance_ratio_[0],
+        pca_sigma.explained_variance_ratio_[1]))
     print()
 
     # PLOT
