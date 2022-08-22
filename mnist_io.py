@@ -14,19 +14,6 @@ file_labels_train = path_data + '/train-labels-idx1-ubyte.gz'
 file_imgs_test = path_data + '/t10k-images-idx3-ubyte.gz'
 file_labels_test = path_data + '/t10k-labels-idx3-ubyte.gz'
 
-def load_single_image(imgs_file, img_id):
-    '''
-    # imgs_file: string pointing to location of images
-    # minimum value of img_id: 1
-    '''
-    f = gzip.open(imgs_file, 'r')
-    f.read(16) # skip first 16 entries
-    f.read(img_size**2 * (img_id-1)) # skip images
-    buf = f.read(img_size**2)
-    f.close()
-    img = np.frombuffer(buf, dtype=np.uint8).reshape(img_size, img_size)
-    return img
-
 def load_images(imgs_file, nImgs):
     '''
     # imgs_file: string pointing to location of images
@@ -44,7 +31,7 @@ def load_labels(labels_file, nLabels):
     # labels_file: string pointing to location of labels
     # nLabels: total number of labels in labels_file
     '''
-    f = gzip.open(file_labels_train, 'r')
+    f = gzip.open(labels_file, 'r')
     f.read(8) # skip first 8 entries
     buf = f.read(nLabels)
     f.close()
