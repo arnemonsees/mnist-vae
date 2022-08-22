@@ -81,21 +81,21 @@ def vae_loss(x, mu, sigma, y):
     return loss    
     
 def plot_imgs(x_plot, y_plot):
-  nImgs = 5
-  fig1 = plt.figure(1, figsize=(20, 4))
-  fig1.clear()
-  ax = list()
-  for i in range(2*nImgs):
+    nImgs = 5
+    fig1 = plt.figure(1, figsize=(20, 4))
+    fig1.clear()
+    ax = list()
+    for i in range(2*nImgs):
     ax.append(fig1.add_subplot(2,nImgs,i+1))
     ax[-1].clear()
     ax[-1].axis('off')
-  for i in range(nImgs):
+    for i in range(nImgs):
       h_in = ax[i].imshow(x_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
       h_out = ax[i+nImgs].imshow(y_plot[i], cmap='gray', vmin=0.0, vmax=1.0)
-  fig1.canvas.draw()
-  plt.show(block=False)
-  #plt.pause(0.1)
-  return
+    fig1.canvas.draw()
+    plt.show(block=False)
+    #plt.pause(0.1)
+    return
 
 if __name__ == '__main__':
     # torch.autograd.set_detect_anomaly(True) # for bug fixing
