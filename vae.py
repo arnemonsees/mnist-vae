@@ -250,22 +250,22 @@ if __name__ == '__main__':
     fig2.clear()
     ax = list()
     for i in range(4):
-      ax.append(fig2.add_subplot(2,2,i+1))
-      ax[-1].clear()
+        ax.append(fig2.add_subplot(2,2,i+1))
+        ax[-1].clear()
     for i in range(9):
-      # mu
-      z_use = z_mu_pca[labels == i]
-      ax[0].plot(z_use[::skip_factor, 0], z_use[::skip_factor, 1],
+        # mu
+        z_use = z_mu_pca[labels == i]
+        ax[0].plot(z_use[::skip_factor, 0], z_use[::skip_factor, 1],
                 linestyle='', marker='.')
-      z_mean = np.mean(z_use, 0)
-      ax[2].plot([z_mean[0]], [z_mean[1]],
+        z_mean = np.mean(z_use, 0)
+        ax[2].plot([z_mean[0]], [z_mean[1]],
                   linestyle='', marker='.')
-      # sigma
-      z_use = z_sigma_pca[labels == i]
-      ax[1].plot(z_use[::skip_factor, 0], z_use[::skip_factor, 1],
+        # sigma
+        z_use = z_sigma_pca[labels == i]
+        ax[1].plot(z_use[::skip_factor, 0], z_use[::skip_factor, 1],
               linestyle='', marker='.')
-      z_mean = np.mean(z_use, 0)
-      ax[3].plot([z_mean[0]], [z_mean[1]],
+        z_mean = np.mean(z_use, 0)
+        ax[3].plot([z_mean[0]], [z_mean[1]],
                   linestyle='', marker='.')
     ax[2].set_xlim(ax[0].get_xlim())
     ax[2].set_ylim(ax[0].get_ylim())
@@ -284,10 +284,10 @@ if __name__ == '__main__':
     z_mu_mean = np.zeros((10, dim_z), dtype=np.float64)
     z_sigma_mean = np.zeros((10, dim_z), dtype=np.float64)
     for i in range(10):
-      z_use = z_mu[labels == i]
-      z_mu_mean[i] = np.mean(z_use, 0)
-      z_use = z_sigma[labels == i]
-      z_sigma_mean[i] = np.mean(z_use, 0)
+        z_use = z_mu[labels == i]
+        z_mu_mean[i] = np.mean(z_use, 0)
+        z_use = z_sigma[labels == i]
+        z_sigma_mean[i] = np.mean(z_use, 0)
 
     nInterp = 5
     z_mu_interp = np.zeros((10, nInterp, dim_z),
@@ -295,24 +295,24 @@ if __name__ == '__main__':
     # z_sigma_interp = np.zeros((10, nInterp, dim_z),
     #                           dtype=np.float64)
     for i in range(10):
-      # mu
-      if (i==9):
+    # mu
+    if (i==9):
         z0 = z_mu_mean[-1]
         z1 = z_mu_mean[0]
-      else:
+    else:
         z0 = z_mu_mean[i]
         z1 = z_mu_mean[i+1]
-      for j in range(dim_z):
+    for j in range(dim_z):
         z_mu_interp[i, :, j] = np.linspace(z0[j], z1[j], nInterp+1)[:-1]
-      # # sigma
-      # if (i==9):
-      #   z0 = z_sigma_mean[-1]
-      #   z1 = z_sigma_mean[0]
-      # else:
-      #   z0 = z_sigma_mean[i]
-      #   z1 = z_sigma_mean[i+1]
-      # for j in range(dim_z):
-      #   z_sigma_interp[i, :, j] = np.linspace(z0[j], z1[j], nInterp+1)[:-1]
+    # # sigma
+    # if (i==9):
+    #   z0 = z_sigma_mean[-1]
+    #   z1 = z_sigma_mean[0]
+    # else:
+    #   z0 = z_sigma_mean[i]
+    #   z1 = z_sigma_mean[i+1]
+    # for j in range(dim_z):
+    #   z_sigma_interp[i, :, j] = np.linspace(z0[j], z1[j], nInterp+1)[:-1]
     z_mu_interp = torch.from_numpy(z_mu_interp).to(dev)
     # z_sigma_interp = torch.from_numpy(z_sigma_interp).to(dev)
 
@@ -325,14 +325,14 @@ if __name__ == '__main__':
     nCols = nInterp
     nPlots = nRows * nCols
     for i in range(nPlots):
-      ax.append(fig3.add_subplot(nRows,nCols,i+1))
-      ax[-1].clear()
-      ax[-1].axis('off')
+        ax.append(fig3.add_subplot(nRows,nCols,i+1))
+        ax[-1].clear()
+        ax[-1].axis('off')
     for i in range(nRows):
-      for j in range(nCols):
-        z_use = (z_mu_interp[i, j])[None, :]
-        x_mu_interp = vae.decode(z_use).detach().cpu().numpy()
-        ax[i*nCols+j].imshow(x_mu_interp[0], cmap='gray', vmin=0.0, vmax=1.0)
+        for j in range(nCols):
+            z_use = (z_mu_interp[i, j])[None, :]
+            x_mu_interp = vae.decode(z_use).detach().cpu().numpy()
+            ax[i*nCols+j].imshow(x_mu_interp[0], cmap='gray', vmin=0.0, vmax=1.0)
     fig3.canvas.draw()
     plt.show(block=False)
     print()
