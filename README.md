@@ -10,4 +10,4 @@ Implementation of a variational autoencoder for generating MNIST samples
 ## Results
 The trained VAE can, for instance, be used to generate smooth interpolations between different numbers. This is achieved by moving along a trajectory in latent space, which connects the respective numbers.
 
-![alt text](https://github.com/arnemonsees/mnist-vae/blob/main/sample.png)
+![](https://github.com/arnemonsees/mnist-vae/blob/main/sample.png)
